@@ -3,7 +3,7 @@
 Цель: научиться работать с базами данных и обрабатывать ошибки при взаимодействии с ними.
 
 База (postgres)
-Host:  postgres.finance.svc.k8s.dldevel
+Host:  #######
 Порт 5432
 DbName postgresdb
 User postgresadmin
