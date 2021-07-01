@@ -15,7 +15,7 @@ type Repository struct {
 
 // DoSomething ...
 func (r *Repository) DoSomething(id int, attr *models.Attributes, timestamp time.Time) error {
-	if _, err := r.storage.db.Exec("SELECT * FROM test.do_something($1, $2, $3)",
+	if _, err := r.storage.db.Exec("SELECT test.do_something($1, $2, $3)",
 		id,
 		attr,
 		timestamp,
@@ -27,7 +27,7 @@ func (r *Repository) DoSomething(id int, attr *models.Attributes, timestamp time
 
 // GetDBError ...
 func (r *Repository) GetDBError(id int) error {
-	if _, err := r.storage.db.Exec("SELECT * FROM test.get_db_error($1)", id); err != nil {
+	if _, err := r.storage.db.Exec("SELECT test.get_db_error($1)", id); err != nil {
 		if err, ok := err.(*pq.Error); ok {
 			if err.Code >= "50000" {
 				return fmt.Errorf(
